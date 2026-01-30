@@ -1,0 +1,16 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# logs
+*.log
+
+# env
+.env
+
+# vscode
+.vscode/
+
+# build artifacts
+dist/
+build/

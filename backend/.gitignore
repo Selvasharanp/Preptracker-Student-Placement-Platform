@@ -1,0 +1,15 @@
+# dependencies
+node_modules/
+
+# env secrets
+.env
+
+# logs
+logs/
+*.log
+
+# uploads (if you store files locally)
+uploads/
+
+# temp
+tmp/
