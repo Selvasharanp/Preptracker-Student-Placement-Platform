@@ -15,13 +15,15 @@ function Dashboard() {
   const navigate = useNavigate();
   const [summary, setSummary] = useState(null);
   const [learningPercent, setLearningPercent] = useState(0);
+  const token = localStorage.getItem("token");
   const userId = localStorage.getItem("userId");
   const userName = localStorage.getItem("userName") || "User";
 
   // Wrapped in useCallback
   const fetchSummary = useCallback(async () => {
     try {
-      const res = await API.get(`/progress/summary/${userId}`);
+      if (!token) return;
+const res = await API.get(`/progress/summary/${userId}`);
       setSummary(res.data);
       const learningRes = await API.get(`/learning/overall/${userId}`);
       setLearningPercent(learningRes.data.percent);
@@ -29,6 +31,12 @@ function Dashboard() {
       console.error(err);
     }
   }, [userId]);
+
+  useEffect(() => {
+  if (!token) {
+    navigate("/login");
+  }
+}, [token, navigate]);
 
   useEffect(() => {
     fetchSummary();

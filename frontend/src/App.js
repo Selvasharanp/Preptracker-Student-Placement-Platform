@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import CodingPractice from "./pages/CodingPractice";
 import AptitudePractice from "./pages/AptitudePractice";
@@ -19,19 +19,22 @@ function Layout() {
 
   return (
     <>
-      {!hideNav && <TopNav />}   {/* ✅ navbar only once */}
+      {!hideNav && <TopNav />}
 
       <Routes>
-        <Route path="/" element={<Dashboard />} />
+        {/* ✅ IMPORTANT: default route should NOT be dashboard */}
+        <Route path="/" element={<Navigate to="/login" />} />
+
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/coding-practice" element={<CodingPractice />} />
         <Route path="/aptitude-practice" element={<AptitudePractice />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
         <Route path="/companies" element={<Companies />} />
         <Route path="/companies/:id" element={<CompanyDetails />} />
         <Route path="/learning" element={<Learning />} />
-      <Route path="/learning/:id" element={<LearningDetails />} />
+        <Route path="/learning/:id" element={<LearningDetails />} />
       </Routes>
     </>
   );
