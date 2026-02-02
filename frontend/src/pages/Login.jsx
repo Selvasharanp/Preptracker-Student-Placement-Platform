@@ -93,7 +93,6 @@ function Login() {
                   <Form.Group className="mb-4">
                     <div className="d-flex justify-content-between align-items-center mb-2">
                       <Form.Label className="small fw-semibold text-uppercase text-muted mb-0" style={{ fontSize: '10px', letterSpacing: '1px' }}>Password</Form.Label>
-                      <Link to="/forgot" className="text-decoration-none small fw-bold" style={{ fontSize: '11px', color: '#6366f1' }}>Forgot password?</Link>
                     </div>
                     <InputGroup className="custom-input-group">
                       <InputGroup.Text className="bg-transparent border-end-0 ps-3">
@@ -144,7 +143,7 @@ function Login() {
             </Card>
             
             <p className="text-center mt-4 text-white-50 small">
-              &copy; 2024 YourBrand. All rights reserved.
+              &copy; 2026 YourBrand. All rights reserved.
             </p>
           </Col>
         </Row>
