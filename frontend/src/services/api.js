@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://preptracker-student-placement-platform-1.onrender.com",
+  baseURL: process.env.REACT_APP_API_URL,
 });
 
 export default API;

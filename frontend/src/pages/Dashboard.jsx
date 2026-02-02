@@ -20,17 +20,17 @@ function Dashboard() {
   const userName = localStorage.getItem("userName") || "User";
 
   // Wrapped in useCallback
-  const fetchSummary = useCallback(async () => {
-    try {
-      if (!token) return;
-const res = await API.get(`/progress/summary/${userId}`);
-      setSummary(res.data);
-      const learningRes = await API.get(`/learning/overall/${userId}`);
-      setLearningPercent(learningRes.data.percent);
-    } catch (err) {
-      console.error(err);
-    }
-  }, [userId]);
+ const fetchSummary = useCallback(async () => {
+  try {
+    if (!token) return;
+    const res = await API.get(`/progress/summary/${userId}`);
+    setSummary(res.data);
+    const learningRes = await API.get(`/learning/overall/${userId}`);
+    setLearningPercent(learningRes.data.percent);
+  } catch (err) {
+    console.error(err);
+  }
+}, [userId, token]);
 
   useEffect(() => {
   if (!token) {
