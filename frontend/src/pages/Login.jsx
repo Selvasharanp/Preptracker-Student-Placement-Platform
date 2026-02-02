@@ -143,7 +143,7 @@ function Login() {
             </Card>
             
             <p className="text-center mt-4 text-white-50 small">
-              &copy; 2026 YourBrand. All rights reserved.
+              &copy; 2026 Preptracker. All rights reserved.
             </p>
           </Col>
         </Row>
